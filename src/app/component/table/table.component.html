@@ -1,0 +1,35 @@
+<ion-grid>
+  <ion-row>
+    <div class="table-view">
+      <ion-button class="direction-arrow-btn btn-top" fill="outline" color="primary" (click)="onCommandExec(DIRECTION.NORTH)"> 
+        <ion-icon name="chevron-up-outline" slot="icon-only"></ion-icon> 
+      </ion-button> 
+  
+      <ion-button class="direction-arrow-btn btn-left" fill="outline" color="primary" (click)="onCommandExec(DIRECTION.WEST)"> 
+        <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon> 
+      </ion-button> 
+  
+      <ion-button class="direction-arrow-btn btn-right" fill="outline" color="primary" (click)="onCommandExec(DIRECTION.EAST)"> 
+        <ion-icon name="chevron-forward-outline" slot="icon-only"></ion-icon> 
+      </ion-button> 
+  
+      <ion-button class="direction-arrow-btn btn-bottom" fill="outline" color="primary" (click)="onCommandExec(DIRECTION.SOUTH)"> 
+        <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon> 
+      </ion-button> 
+
+      <div
+        class="block robo-bg"
+        [ngClass]="directionClass"
+        [ngStyle]="XYDirectionStyle"
+      ></div>
+      <div class="overlay" padding [hidden]="overlayHidden">
+        <ion-button mode="md" (click)="placeRobot()">Place Robot</ion-button>
+      </div>
+    </div>
+  </ion-row>
+  <ion-row >
+    <div *ngIf="overlayHidden" class="ion-text-center command-buttons">
+      <ion-button mode="md" color="secondary" (click)="showReport()">Report</ion-button>
+    </div>
+  </ion-row>
+</ion-grid>
